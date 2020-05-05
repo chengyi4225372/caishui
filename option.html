@@ -1,0 +1,132 @@
+
+
+<html>
+<head>
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+
+    <title>系统选项</title>
+</head>
+<script language ="javascript">
+
+
+    function check(){
+        if (myform.start_date.value == ""){
+            alert("请输入启用日期!");
+
+            myform.start_date.focus();
+            return;
+        }
+
+        var dateReg = /(([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})-(((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)-(0[1-9]|[12][0-9]|30))|(02-(0[1-9]|[1][0-9]|2[0-8]))))|((([0-9]{2})(0[48]|[2468][048]|[13579][26])|((0[48]|[2468][048]|[3579][26])00))-02-29)/g;
+        if (!dateReg.test(myform.start_date.value)){
+            alert("启用日期格式错误!");
+            myform.start_date.focus();
+            return;
+
+        }
+        //alert(myform.start_date.value);
+
+        myform.submit();
+    }
+
+    function showbd(){
+        var ywd=showModalDialog("../expenseContorl/expense_show.jsp?v_dm=010700301&&show=1","true","dialogWidth=800px;dialogHeight=500px;help:0;status:0;scroll:0");
+
+    }
+
+</script>
+<script language="javascript" type="text/javascript" src="../My97DatePicker/WdatePicker.js"></script>
+<script language="javascript" src="../skin1.js"></script>
+<body class="body1">
+</br>
+<p align="center"><font class="title2">系统参数选项设置</font></p>
+<div align="center">
+    <form name="myform" method="POST" action="option_handler.jsp">
+        <table border="1" width="80%" id="table1" height="261" class="table1" >
+            <tr>
+                <td  height="32" width="20%">
+                    <p align="right">账套名称：</td>
+                <td  height="32">华艺种植专业合作社　</td>
+            </tr>
+            <tr>
+                <td >
+                    <p align="right">启用日期：</td>
+                <!--<td ><input type="text" name="start_date" size="20" value="2019-08-01" ><img border="0" src="calendaricon.gif" align="absmiddle" onClick="javascript:showInput(document.myform.start_date,document.myform.start_date,window.event.x,window.event.y)" style="cursor:hand" width="17" height="17">
+                格式：yyyy-mm-dd，如：2007-05-06</td>-->
+                <td ><input type="text" name="start_date" size="20" value="2019-08-01"  readonly="readonly" class="Wdate" onClick="WdatePicker()" >
+                    格式：yyyy-mm-dd<font color="#FF0000">（启用时间设置后不可修改）</font></td>
+            </tr>
+            <tr>
+                <td  align="right">凭证类型：</td>
+                <td ><input id="isOpen0" type="radio" name="slip_type" value="1" checked="checked"/><label for="isOpen0">记账凭证</label></td>
+            </tr>
+            <tr>
+                <td  align="right">科目级长：</td>
+                <td >
+                    <p><input type="text" name="account_code_len" size="20" value="3,3,3,3,3" readonly="true" disabled="disabled">用半角逗号分隔，最高5级，每级不大于5</p>
+
+                </td>
+            </tr>
+            <tr>
+                <td  align="right">部门级长：</td>
+                <td ><input type="text" name="dept_code_len" size="20" value="2,2,2,3" readonly="true" disabled="disabled">用半角逗号分隔，最高5级，每级不大于5</td>
+            </tr>
+            <tr>
+                <td  align="right">单笔限额：</td>
+                <td >
+                    <input type="text" name="single_limit" size="31" value="" readonly="true" disabled="disabled">科目代码1:控制金额1,科目代码2:控制金额2,...</td>
+            </tr>
+            <tr>
+                <td  align="right">费用控制：</td>
+                <td >
+                    <input type="text" name="fee_control" size="31" value="" readonly="treu" disabled="disabled">科目代码1:控制金额1,科目代码2:控制金额2,...</td>
+            </tr>
+            <tr>
+                <!--  <td colspan="2" align="center"><a href="#" onClick="showbd()">费用控制查询</a></td>-->
+
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center"><input type="button" value=" 提 交 " name="B1" onClick="check();" disabled="disabled"></td>
+            </tr>
+            <!--<tr>
+                <td  align="right">凭证类型：</td>
+                <td ><input id="isOpen0" type="radio" name="slip_type" value="1" checked="checked" /><label for="isOpen0">记账凭证</label>
+    <input id="isOpen2" type="radio" name="slip_type" value="2"  /><label for="isOpen2">收付转</label>
+    <input id="isOpen3" type="radio" name="slip_type" value="3"  /><label for="isOpen3">现收,现付,银收,银付,转账</label>　</td>
+            </tr>
+            <tr>
+                <td  align="right">科目级长：</td>
+                <td >
+                    <p><input type="text" name="account_code_len" size="20" value="3,3,3,3,3 "3,3,3,3,3>用半角逗号分隔，最高5级，每级不大于5</p>
+
+                </td>
+            </tr>
+            <tr>
+                <td  align="right">部门级长：</td>
+                <td ><input type="text" name="dept_code_len" size="20" value=2,2,2,3 "2,2,2,3" >用半角逗号分隔，最高5级，每级不大于5</td>
+            </tr>
+            <tr>
+                <td  align="right">单笔限额：</td>
+                <td >
+                <input type="text" name="single_limit" size="31" value="">科目代码1:控制金额1,科目代码2:控制金额2,...</td>
+            </tr>
+            <tr>
+                <td  align="right">费用控制：</td>
+                <td >
+                <input type="text" name="fee_control" size="31" value="">科目代码1:控制金额1,科目代码2:控制金额2,...</td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="button" value=" 提 交 " name="B1" onClick="check();"></td>
+            </tr>-->
+        </table>
+        <input type="hidden" name="account_code_len" value="3,3,3,3,3"/>
+        <input type="hidden" name="dept_code_len" value="2,2,2,3"/>
+        <input type="hidden" name="single_limit" value=""/>
+        <input type="hidden" name="fee_control" value=""/>
+    </form>
+</div>
+
+</body>
+</html>

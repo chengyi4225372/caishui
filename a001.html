@@ -1,0 +1,122 @@
+
+
+<html>
+<head>
+    <meta http-equiv="Content-Language" content="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>新建网页 1</title>
+    <!--<link type="text/css" rel="stylesheet" href="../layout.css" />-->
+    <!--<script type="text/javascript" src="../png.js"></script>-->
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <script language="javascript" src="./js/skin1.js"></script>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var ifh = window.parent.$('#center-tab').height() - window.parent.$('#center-tab').find(".om-tabs-headers").outerHeight() - 2;
+            $('.mx').click(function() {
+                var url=$(this).attr('href');
+                var bh=$(this).attr('id');
+                var va;
+                //va=$(this).text();
+                va=$(this).attr('title');
+                //alert($(this).get(0).tagName);
+                $(this).attr('href','show_icons.jsp?bh=A001');
+                var tabId = window.parent.$('#center-tab').omTabs('getAlter', 'tab_'+bh);
+                if(tabId){
+                    //tabElement.omTabs('activate', tabId);
+                    window.parent.$('#center-tab').omTabs('close', tabId);
+                    window.parent.$('#center-tab').omTabs('add',{
+                        title : va,//nodeData.text,
+                        tabId : 'tab_'+bh,//'tab_'+nodeData.id,
+                        content : "<iframe id='"+bh+"' border=0 frameBorder='no' name='inner-frame' src='"+url+"' height='"+ifh+"' width='100%'></iframe>",
+                        closable : true
+                    });
+                }else{
+                    window.parent.$('#center-tab').omTabs('add',{
+                        title : va,//nodeData.text,
+                        tabId : 'tab_'+bh,//'tab_'+nodeData.id,
+                        content : "<iframe id='"+bh+"' border=0 frameBorder='no' name='inner-frame' src='"+url+"' height='"+ifh+"' width='100%'></iframe>",
+                        closable : true
+                    });
+                }
+
+            });
+        });
+    </script>
+
+</head>
+<body class="body1">
+<div align="center" style="padding-top:0px; margin-top:0px">
+    <table border="0" width="100%">
+        <tr>
+            <td align="left"></td>
+        </tr>
+    </table>
+    <table border="0" width="700" id="table1">
+        <tr>
+            <td colspan="5" height="24" align="center"><font class="title1">农民合作社网络管理系统</font></td>
+        </tr>
+
+        <tr>
+            <td width="140" align="center" height="134"><font size="2"><a class="fmx" id="A001CN01" title="系统初始化" href="show_icons.jsp?bh=A001CN01" target="_self"><img src="../boximages/init.png" border="0" width="64" height="64"></a><br><a class="fmx" id="A001CN01" title="系统初始化" href="show_icons.jsp?bh=A001CN01" target="_self">系统初始化</a></font></td>
+
+
+            <td width="140" align="center" height="134"><font size="2"><a class="fmx" id="A001CN04" title="财务管理" href="show_icons.jsp?bh=A001CN04" target="_self"><img src="../boximages/40.png" border="0" width="64" height="64"></a><br><a class="fmx" id="A001CN04" title="财务管理" href="show_icons.jsp?bh=A001CN04" target="_self">财务管理</a></font></td>
+
+
+            <td width="140" align="center" height="134"><font size="2"><a class="fmx" id="A001CN07" title="分红管理" href="show_icons.jsp?bh=A001CN07" target="_self"><img src="../boximages/contacts.png" border="0" width="64" height="64"></a><br><a class="fmx" id="A001CN07" title="分红管理" href="show_icons.jsp?bh=A001CN07" target="_self">分红管理</a></font></td>
+
+
+            <td width="140" align="center" height="134"><font size="2"><a class="fmx" id="A001CN10" title="内购业务" href="show_icons.jsp?bh=A001CN10" target="_self"><img src="../boximages/default.png" border="0" width="64" height="64"></a><br><a class="fmx" id="A001CN10" title="内购业务" href="show_icons.jsp?bh=A001CN10" target="_self">内购业务</a></font></td>
+
+
+            <td width="140" align="center" height="134"><font size="2"><a class="fmx" id="A001CN11" title="外购业务" href="show_icons.jsp?bh=A001CN11" target="_self"><img src="../boximages/default.png" border="0" width="64" height="64"></a><br><a class="fmx" id="A001CN11" title="外购业务" href="show_icons.jsp?bh=A001CN11" target="_self">外购业务</a></font></td>
+            </br>
+
+
+        <tr>
+            <td width="140" align="center" height="134"><font size="2"><a class="fmx" id="A001CN20" title="订单管理" href="show_icons.jsp?bh=A001CN20" target="_self"><img src="../boximages/default.png" border="0" width="64" height="64"></a><br><a class="fmx" id="A001CN20" title="订单管理" href="show_icons.jsp?bh=A001CN20" target="_self">订单管理</a></font></td>
+
+
+            <td width="140" align="center" height="134"><font size="2"><a class="fmx" id="A001CN30" title="社务管理" href="show_icons.jsp?bh=A001CN30" target="_self"><img src="../boximages/default.png" border="0" width="64" height="64"></a><br><a class="fmx" id="A001CN30" title="社务管理" href="show_icons.jsp?bh=A001CN30" target="_self">社务管理</a></font></td>
+
+
+            <td width="140" align="center" height="134"><font size="2"><a class="fmx" id="A001CN35" title="财务监管" href="show_icons.jsp?bh=A001CN35" target="_self"><img src="../boximages/default.png" border="0" width="64" height="64"></a><br><a class="fmx" id="A001CN35" title="财务监管" href="show_icons.jsp?bh=A001CN35" target="_self">财务监管</a></font></td>
+
+
+            <td width="140" align="center" height="134"><font size="2"><a class="fmx" id="A001CN80" title="通知公告" href="show_icons.jsp?bh=A001CN80" target="_self"><img src="../boximages/default.png" border="0" width="64" height="64"></a><br><a class="fmx" id="A001CN80" title="通知公告" href="show_icons.jsp?bh=A001CN80" target="_self">通知公告</a></font></td>
+
+
+            <td width="140" align="center" height="134"><font size="2"><a class="fmx" id="A001CN99" title="系统维护" href="show_icons.jsp?bh=A001CN99" target="_self"><img src="../boximages/Customize_Yellow.png" border="0" width="64" height="64"></a><br><a class="fmx" id="A001CN99" title="系统维护" href="show_icons.jsp?bh=A001CN99" target="_self">系统维护</a></font></td>
+            </br>
+
+
+        <tr>
+            <td width="140" align="center">　</td>
+            <td width="140" align="center">　</td>
+            <td width="140" align="center">　</td>
+            <td width="140" align="center">　</td>
+            <td width="141" align="center">　</td>
+        </tr>
+
+        <tr>
+            <td width="691" align="center" colspan="5">　<table border="0" width="100%" height="157" id="table2" class="bottable">
+                <tr>
+                    <td width="40%">
+                        <p align="right"></td>
+                    <td valign="middle">　　</td>
+                </tr>
+                <tr>
+                    <td width="40%">　</td>
+                    <td>　</td>
+                </tr>
+            </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+</body>
+
+</html>

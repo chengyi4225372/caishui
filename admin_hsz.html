@@ -1,0 +1,288 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gbk">
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <title>中农信达农村专业合作社管理系统</title>
+    <script language="javascript" src="./js/skin1.js"></script>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/operamasks-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/om-default.css" />
+    <!-- view_source_begin -->
+    <style>
+        html, body{ width: 100%; height: 100%; padding: 0; margin: 0;}
+        #center-tab .om-panel-body{
+            padding: 0;
+        }
+    </style>
+    <script type="text/javascript">
+        //普通提醒（标题和内容可使用html代码），要手动关闭，关闭时无回调
+        //         '<a href="http://www.apusic.com/market/09zhaopin/home.htm" target="_blank" style="color:red">金蝶中间件诚聘英才</a><br/>'
+        /* function showHtmlTip(){
+         $.omMessageTip.show({
+         title : '<font color="blue">中农消息</font>',
+         content :   ''
+         });
+         }*/
+        $(document).ready(function() {
+            $('body').omBorderLayout({
+                panels:[{
+                    id:"north-panel",
+                    region:"north",
+                    header : false,
+                    resizable:true,
+                    collapsible:true,
+                    height : 80
+                },{
+                    id:"center-panel",
+                    header:false,
+                    region:"center"
+                },{
+                    id:"west-panel",
+                    resizable:true,
+                    collapsible:true,
+                    title:"导航",
+                    region:"west",width:200
+                },{
+                    id:"south-panel",
+                    resizable:false,
+                    header : false,
+                    collapsible:false,
+                    header : false,
+                    region:"south",
+                    height : 22
+                }
+
+                ]
+            });
+            var tabElement = $('#center-tab').omTabs({
+                height : "fit",
+                lazyLoad : true,
+                closable : true,
+                contextMenu : true
+            });
+            var navData = [{id:'A001CN01',pid:'A001',text:'系统初始化',url:'../init/show_icons.jsp?bh=A001CN01'},{id:'A001CN0101',pid:'A001CN01',text:'系统选项参数',url:'../init/option.jsp'},{id:'A001CN0105',pid:'A001CN01',text:'会计科目设置',url:'../init/account_hzs.htm'},{id:'A001CN0109',pid:'A001CN01',text:'取消初始化',url:'./images/cancel_init.htm'},{id:'A001CN04',pid:'A001',text:'财务管理',url:'../init/show_icons.jsp?bh=A001CN04'},{id:'A001CN0401',pid:'A001CN04',text:'凭证管理',url:'../init/show_icons.jsp?bh=A001CN0401'},{id:'A001CN040101',pid:'A001CN0401',text:'凭证录入',url:'../slip_hzs/slip.htm'},{id:'A001CN040102',pid:'A001CN0401',text:'凭证修改',url:'../slip_hzs/slip_edit.htm'},{id:'A001CN040103',pid:'A001CN0401',text:'凭证审核',url:'../slip/slip_sh.htm'},{id:'A001CN040104',pid:'A001CN0401',text:'凭证记账',url:'../slip/slip_jz.htm'},{id:'A001CN040105',pid:'A001CN0401',text:'凭证(科目)汇总',url:'../slip/slip_hz.htm'},{id:'A001CN040106',pid:'A001CN0401',text:'凭证查询',url:'../slip_hzs/slip_cx.htm'},{id:'A001CN0402',pid:'A001CN04',text:'期末处理',url:'../init/show_icons.jsp?bh=A001CN0402'},{id:'A001CN040201',pid:'A001CN0402',text:'月末收支结转',url:'../init/month_end_formhzs.jsp'},{id:'A001CN040203',pid:'A001CN0402',text:'结转下月',url:'../init/next_month.htm'},{id:'A001CN040204',pid:'A001CN0402',text:'反结账',url:'../init/prev_month11.jsp'},{id:'A001CN0403',pid:'A001CN04',text:'账簿管理',url:'../init/show_icons.jsp?bh=A001CN0403'},{id:'A001CN040301',pid:'A001CN0403',text:'科目余额表',url:'../reports/kmyeb.htm'},{id:'A001CN040302',pid:'A001CN0403',text:'总账',url:'../reports/zz.htm'},{id:'A001CN040303',pid:'A001CN0403',text:'明细账',url:'../reports/mxz.htm'},{id:'A001CN040304',pid:'A001CN0403',text:'成员核算明细账',url:'../hzs_zh/wlmxz.htm'},{id:'A001CN040305',pid:'A001CN0403',text:'成员交易明细账',url:'../hzs_zh/jymxz.htm'},{id:'A001CN040306',pid:'A001CN0403',text:'成员核算余额表',url:'../reports/cywl_yeb.htm'},{id:'A001CN0404',pid:'A001CN04',text:'报表管理',url:'../init/show_icons.jsp?bh=A001CN0404'},{id:'A001CN040405',pid:'A001CN0404',text:'报表查询',url:'../reports/report_cx_hzs.htm'},{id:'A001CN05',pid:'A001CN',text:'基础数据',url:'../init/show_icons.jsp?bh=A001CN05'},{id:'A001CN0501',pid:'A001CN05',text:'成员信息',url:'../init/individuals.htm'},{id:'A001CN0502',pid:'A001CN05',text:'产品管理',url:'../user/product.htm'},{id:'A001CN0503',pid:'A001CN05',text:'出资方式',url:'../init/member_cz.htm'},{id:'A001CN0504',pid:'A001CN05',text:'捐赠方式',url:'../init/member_jz.htm'},{id:'A001CN0505',pid:'A001CN05',text:'交易科目设置',url:'../init/jykm.jsp'},{id:'A001CN0506',pid:'A001CN05',text:'购销凭证模版',url:'../buysell/bs.htm'},{id:'A001CN07',pid:'A001',text:'分红管理',url:'../init/show_icons.jsp?bh=A001CN07'},{id:'A001CN0711',pid:'A001CN07',text:'成员出资',url:'../member/member_cz.htm'},{id:'A001CN0712',pid:'A001CN07',text:'财政补助资金量化',url:'../member/member_czbz.htm'},{id:'A001CN0713',pid:'A001CN07',text:'捐赠财产量化',url:'../member/member_jz.htm'},{id:'A001CN0714',pid:'A001CN07',text:'盈余分配',url:'../hzs/distribution.htm'},{id:'A001CN0719',pid:'A001CN07',text:'成员账户表',url:'../hzs_zh/zh.htm'},{id:'A001CN0720',pid:'A001CN07',text:'成员账户汇总表',url:'../hzs_zh/zh_hz.htm'},{id:'A001CN0721',pid:'A001CN07',text:'成员股份明细账',url:'../hzs_zh/cygf.htm'},{id:'A001CN0722',pid:'A001CN07',text:'成员盈余分配清单',url:'../hzs_zh/member_yyfp.htm'},{id:'A001CN0723',pid:'A001CN07',text:'成员权益变动表',url:'../hzs_zh/cyqybd.htm'},{id:'A001CN10',pid:'A001',text:'内购业务',url:'../init/show_icons.jsp?bh=A001CN10'},{id:'A001CN1005',pid:'A001CN10',text:'内购管理',url:'../buysell/buy.htm'},{id:'A001CN1006',pid:'A001CN10',text:'产品库存',url:'../buysell/kc.htm'},{id:'A001CN1008',pid:'A001CN10',text:'内购外销',url:'../buysell/sell.htm'},{id:'A001CN1009',pid:'A001CN10',text:'内购内销',url:'../sellin/sell_in.htm'},{id:'A001CN11',pid:'A001',text:'外购业务',url:'../init/show_icons.jsp?bh=A001CN11'},{id:'A001CN1101',pid:'A001CN11',text:'外购管理',url:'../buysell2/buy_out.htm'},{id:'A001CN1102',pid:'A001CN11',text:'产品库存',url:'../buysell2/kc.htm'},{id:'A001CN1103',pid:'A001CN11',text:'外购内销',url:'../buysell2/sell.htm'},{id:'A001CN1105',pid:'A001CN11',text:'外购外销',url:'../sellout/sell.htm'},{id:'A001CN20',pid:'A001',text:'订单管理',url:'../init/show_icons.jsp?bh=A001CN20'},{id:'A001CN2001',pid:'A001CN20',text:'供应信息',url:'../gq/supply.htm'},{id:'A001CN2002',pid:'A001CN20',text:'求购信息',url:'../gq/demand.htm'},{id:'A001CN2003',pid:'A001CN20',text:'购销查询',url:'../product/buy.htm'},{id:'A001CN30',pid:'A001',text:'社务管理',url:'../init/show_icons.jsp?bh=A001CN30'},{id:'A001CN3001',pid:'A001CN30',text:'基本信息',url:'../product/baseinfo_form.jsp'},{id:'A001CN3002',pid:'A001CN30',text:'社务日志',url:'../product/note_show.htm'},{id:'A001CN3012',pid:'A001CN30',text:'年报上传',url:'../product/year_upload.htm'},{id:'A001CN3013',pid:'A001CN30',text:'年报查询',url:'../product/year_cx.htm'},{id:'A001CN35',pid:'A001',text:'财务监管',url:'../init/show_icons.jsp?bh=A001CN35'},{id:'A001CN3501',pid:'A001CN35',text:'财务进度',url:'../init/progressn.htm'},{id:'A001CN80',pid:'A001',text:'通知公告',url:'../init/show_icons.jsp?bh=A001CN80'},{id:'A001CN8001',pid:'A001CN80',text:'公告发布',url:'../note/note_show.htm'},{id:'A001CN8002',pid:'A001CN80',text:'通知查看',url:'../note/note.htm'},{id:'A001CN99',pid:'A001',text:'系统维护',url:'../init/show_icons.jsp?bh=A001CN99'},{id:'A001CN9903',pid:'A001CN99',text:'操作员管理',url:'../user/user.htm'},{id:'A001CN9907',pid:'A001CN99',text:'修改密码',url:'../user/password.htm'}];
+            $("#navTree").omTree({
+                dataSource : navData,
+                simpleDataModel: true,
+                onClick : function(nodeData , event){
+                    if(nodeData.url){
+                        var tabId = tabElement.omTabs('getAlter', 'tab_'+nodeData.id);
+                        if(tabId){
+                            //tabElement.omTabs('activate', tabId);
+                            tabElement.omTabs('close', tabId);
+                            tabElement.omTabs('add',{
+                                title : nodeData.text,
+                                tabId : 'tab_'+nodeData.id,
+                                content : "<iframe id='"+nodeData.id+"' border=0 frameBorder='no' name='inner-frame' src='"+nodeData.url+"' height='"+ifh+"' width='100%'></iframe>",
+                                closable : true
+                            });
+                        }else{
+                            tabElement.omTabs('add',{
+                                title : nodeData.text,
+                                tabId : 'tab_'+nodeData.id,
+                                content : "<iframe id='"+nodeData.id+"' border=0 frameBorder='no' name='inner-frame' src='"+nodeData.url+"' height='"+ifh+"' width='100%'></iframe>",
+                                closable : true
+                            });
+                        }
+                    }
+                }
+            });
+            //点击消息按钮增加一个新选项卡。
+            $("#msg").bind("click",function(){
+                var tabId = tabElement.omTabs('getAlter', 'tab_ggl');
+                if(tabId){
+                    tabElement.omTabs('activate', tabId);
+                }else{
+                    tabElement.omTabs('add',{
+                        title : '公告栏',
+                        tabId : 'tab_ggl',
+                        content : "<iframe id='tabggl' border=0 frameBorder='no' name='inner-frame' src='../note/note.htm' height='"+ifh+"' width='100%'></iframe>",
+                        closable : true
+                    });
+                }
+            });
+            //切换帐套
+            $("#qhzt").bind("click",function(){
+                var tabId = tabElement.omTabs('getAlter', 'tab_qhzt');
+                if(tabId){
+                    tabElement.omTabs('activate', tabId);
+                }else{
+                    tabElement.omTabs('add',{
+                        title : '切换帐套',
+                        tabId : 'tab_qhzt',
+                        content : "<iframe id='tabqhzt' border=0 frameBorder='no' name='inner-frame' src='zt_alter_tree.jsp' height='"+ifh+"' width='100%'></iframe>",
+                        closable : true
+                    });
+                }
+            });
+            //切换操作员
+            $("#qhczy").bind("click",function(){
+                var tabId = tabElement.omTabs('getAlter', 'tab_qhczy');
+                if(tabId){
+                    tabElement.omTabs('activate', tabId);
+                }else{
+                    tabElement.omTabs('add',{
+                        title : '切换操作员',
+                        tabId : 'tab_qhczy',
+                        content : "<iframe id='tabqhczy' border=0 frameBorder='no' name='inner-frame' src='czy_alter_tree.jsp' height='"+ifh+"' width='100%'></iframe>",
+                        closable : true
+                    });
+                }
+            });
+            //流程指导
+            $("#lczd").bind("click",function(){
+                var tabId = tabElement.omTabs('getAlter', 'tab_lczd');
+                if(tabId){
+                    //tabElement.omTabs('activate', tabId);
+                    tabElement.omTabs('close', tabId);
+                    tabElement.omTabs('add',{
+                        title : '流程指导',
+                        tabId : 'tab_lczd',
+                        content : "<iframe id='tablczd' border=0 frameBorder='no' name='inner-frame' src='guide_hzs_zj.jsp' height='"+ifh+"' width='100%'></iframe>",
+                        closable : true
+                    });
+                }else{
+                    tabElement.omTabs('add',{
+                        title : '流程指导',
+                        tabId : 'tab_lczd',
+                        content : "<iframe id='tablczd' border=0 frameBorder='no' name='inner-frame' src='guide_hzs_zj.jsp' height='"+ifh+"' width='100%'></iframe>",
+                        closable : true
+                    });
+                }
+            });
+            //合作社流程指导
+            $("#hzslczd").bind("click",function(){
+                var tabId = tabElement.omTabs('getAlter', 'tab_hzslczd');
+                if(tabId){
+                    //tabElement.omTabs('activate', tabId);
+                    tabElement.omTabs('close', tabId);
+                    tabElement.omTabs('add',{
+                        title : '合作社流程指导',
+                        tabId : 'tab_hzslczd',
+                        content : "<iframe id='hzstablczd' border=0 frameBorder='no' name='inner-frame' src='guide_hzs.jsp' height='"+ifh+"' width='100%'></iframe>",
+                        closable : true
+                    });
+                }else{
+                    tabElement.omTabs('add',{
+                        title : '合作社流程指导',
+                        tabId : 'tab_hzslczd',
+                        content : "<iframe id='hzstablczd' border=0 frameBorder='no' name='inner-frame' src='guide_hzs.jsp' height='"+ifh+"' width='100%'></iframe>",
+                        closable : true
+                    });
+                }
+            });
+            var ifh = tabElement.height() - tabElement.find(".om-tabs-headers").outerHeight() - 2;
+            $('#3Dbox').height(ifh);
+        });
+    </script>
+    <script language="javascript">
+        //禁用退格键,dlm添加
+        function keydown() {
+            if (event.keyCode == 8) {
+                event.returnValue = false;
+                //alert("当前设置不允许使用退格键");
+            }
+        }
+        document.onkeydown = keydown;
+        //切换界面
+        function opennew()
+        {
+            window.location.href = 'admin.jsp';
+        }
+        function linkTo(url){
+            topform.action =url;
+            topform.submit();
+        };
+    </script>
+    <script src="./js/AddresBook.js"></script>
+    <script src="./js/engine.js"></script>
+    <script src="./js/util.js"></script>
+    <script type="text/javascript">
+        DWREngine.setAsync(false);//设置是否异步传输为false,即同步
+        var timerindex;
+        var imgs = "<input id='msgbtn' name='msg' type='button'  style= \"border-width: 0; background: url('./images/msg.gif') center ; width: 18px; cursor:pointer; \"/>";
+        function newmsg(){
+            AddresBook.gethasnoread(function(data){
+                var msgn = data;
+                if(msgn=="0"){
+                    document.getElementById("msg").innerHTML="";
+                }else{
+                    document.getElementById("msg").innerHTML = imgs+"<FONT SIZE='2px' color=\"red\">("+msgn+")</FONT>";
+                }
+
+            });
+        }
+        function start(){
+            //showHtmlTip();
+            newmsg();
+            timerindex = setInterval('newmsg()',60000);
+        }
+        function clear(){
+            clearInterval(timerindex);
+        }
+        function openWin(windowURL, windowName, windowFeatures ) {
+            return window.open( windowURL, windowName, windowFeatures ) ;
+        }
+        function openWindow(){
+            newWindow=openWin("bug_list.jsp", "attachselect", "width=740,height=700,toolbar=0,location=0,directories=0,status=0,menuBar=0,scrollBars=1,resizable=0" );
+        }
+
+        function add_home(){
+            if(confirm("创建桌面快捷方式吗？")){
+                newWindow=openWin("add_homehzs.jsp", "attachselect", "width=740,height=700,toolbar=0,location=0,directories=0,status=0,menuBar=0,scrollBars=1,resizable=0" )
+            }else{
+                return;
+            }
+
+        }
+    </script>
+</head>
+<body onLoad="start();"  onunload="clear();" >
+<!-- view_source_begin -->
+<div id="north-panel" >
+    <table width="100%" height="78" border="0" cellspacing="0" id="sztop">
+        <tr>
+            <!--<td width="503" align="left" class="tophzsleft">　</td>-->
+            <td width="596" align="left"  onClick="add_home();" style=" background-image:url(./images/logo.png); background-repeat:no-repeat; background-position:left center;">
+                <span style="font-size:36px; font-family:黑体; color:white; padding-left:70px;"><b>河北省农民专业合作社网络管理系统</b></span></td>
+            <td width="13" align="center"><form name="topform" id="topform"  target="mainFrame"><span  id="msg">   </span></form>　</td>
+            <!-- <td width="54" align="center"><a href="javascript:openWindow();">版本信息</a></td>
+             <td width="7"  align="center"></td>
+               <td width="60" align="center"><img id="qhzt" src="images/qhzt.png" width="60" height="60" border="0" style="cursor:hand" title="切换帐套">
+             </td>
+              <td width="60" align="center"><img id='qhczy' src="images/qhczy.png" width="60" height="60" border="0" style="cursor:hand" title="切换操作员">
+             </td>-->
+
+
+            <td width="60" align="center"><img id="lczd" src="./images/zj.png" width="60" height="60" border="0" style="cursor:hand" title="流程指导">
+            </td>
+            <td width="60" align="center"><img id="hzslczd" src="./images/hzs.png" width="60" height="60" border="0" style="cursor:hand" title="合作社流程"></td>
+            <td width="60" align="center"><a href="#" onClick="javascript:parent.window.location.href='../exit/exit.jsp';"><img src="./images/3_07.png" width="60" height="60" border="0" style="cursor:hand" title="退出系统"></a></td>
+            <td width="6" align="center">&nbsp;
+            </td>
+            <td width="209"><font style="font-size:13px" color="#FFFF00">账套编号：010700301　<br>账套名称：华艺种植专业合作社<br>操作员名：韩冬雪<br>当前月份：2019年 08月</font></td>
+        </tr>
+    </table>
+</div>
+
+<div id="center-panel">
+    <div id="center-tab" >
+        <ul>
+            <li><a href="#tab1">首页</a></li>
+        </ul>
+        <div id="tab1">
+            <iframe id='3Dbox' name="3Dbox" border=0 frameBorder='no' src='a001.html' width='100%'></iframe>
+        </div>
+
+    </div>
+</div>
+<div id="west-panel" style="background-color: #E7F4FA">
+    <ul id="navTree"></ul>
+</div>
+<!-- view_source_end -->
+<div id="south-panel" style="background-color:#6CF">
+    <!--<marquee  bgcolor="#189ae8" onMouseOver="this.stop()" onMouseOut="this.start()" height="18" direction="left" scrolldelay="4" scrollamount="1"></marquee>-->
+    <center><a href="http://www.agrij.com/" target="_blank">版权所有:北京中农信达信息技术有限公司</a></center>
+</div>
+</body>
+</html>
