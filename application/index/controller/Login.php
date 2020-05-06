@@ -18,7 +18,7 @@ class login extends controller
     }
     
 
-    public function loinout(){
+    public function loginout(){
         return $this->fetch();
     }
 

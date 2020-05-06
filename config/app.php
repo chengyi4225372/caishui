@@ -53,6 +53,12 @@ return [
     // | 模块设置
     // +----------------------------------------------------------------------
 
+    // 视图输出字符串内容替换
+    'view_replace_str'       => [
+        '__ADMIN__'=>'/static/admin',
+        '__INDEX__'=>'/static/index',
+        '__FM__'=>'/static/form',
+    ],
     // 默认模块名
     'default_module'         => 'index',
     // 禁止访问模块
