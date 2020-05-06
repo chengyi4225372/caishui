@@ -14,7 +14,7 @@ use app\index\controller\Base;
 class System extends Base
 {
 
-    //后台首页
+    //系统首页
     public function index(){
         return  $this->fetch();
     }
